@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-export const signup = async (req, res) => {
+import { errorHandler } from "../utils/error.js";
+export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
     return res.json({
@@ -16,6 +17,7 @@ export const signup = async (req, res) => {
       .status(201)
       .json({ success: true, message: "User created Successfully!" });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    next(err);
+    // next(errorHandler(550, "Error from function"));
   }
 };
