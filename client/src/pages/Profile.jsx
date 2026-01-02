@@ -81,7 +81,7 @@ const Profile = () => {
             fileRef.current.click();
           }}
         />
-        <p>
+        <p className="text-sm self-center">
           {uploadError ? (
             <span className="text-red-700">{uploadError}</span>
           ) : uploadProgress > 0 && uploadProgress < 100 ? (
