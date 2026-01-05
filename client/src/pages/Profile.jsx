@@ -35,7 +35,7 @@ const Profile = () => {
       setUploadError("Only images allowed");
       return;
     }
-    if (file.size > 10 * 1024 * 1024) {
+    if (file.size > 2 * 1024 * 1024) {
       setUploadError("Max image size is 2MB");
       return;
     }
